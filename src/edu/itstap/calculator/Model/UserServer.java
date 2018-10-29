@@ -162,7 +162,14 @@ public class UserServer implements Runnable {
 
     @Override
     public void run() {
-        if (!user.isReg() && !user.isAutorization()) {
+        if(user.getUserName().isEmpty()&&(!user.getSearchFood().isEmpty() && user.getSearchFood().get(0).isSearch())){
+            try {
+                this.searchFood(user.getSearchFood().get(0));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (!user.getUserName().isEmpty()&& !user.isReg() && !user.isAutorization()) {
             this.registration();
         } else if (user.isReg() && !user.isAutorization()) {
             this.authorization();
@@ -181,8 +188,7 @@ public class UserServer implements Runnable {
         if(user.isAutorization()&& user.isSaveHistoryMenu()){
             this.SaveHistoryMenu(user);
         }
-
-        if (user.isAutorization() && !user.getSearchFood().isEmpty() && user.getSearchFood().get(0).isSearch()) {
+        if (user.isAutorization()&&!user.getSearchFood().isEmpty() && user.getSearchFood().get(0).isSearch()) {
             try {
                 this.searchFood(user.getSearchFood().get(0));
             } catch (SQLException e) {
