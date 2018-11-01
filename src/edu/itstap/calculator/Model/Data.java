@@ -231,12 +231,13 @@ public class Data {
         connection();
         try {
             preparedStatement = connect
-                    .prepareStatement(" UPDATE calculatorCalorie.Users  SET username = ?, email = ?, password = ?, goals_calories = ? WHERE id = ?");
+                    .prepareStatement(" UPDATE calculatorCalorie.Users  SET username = ?, email = ?, password = ?, goals_calories = ?,useSqLite=? WHERE id = ?");
             preparedStatement.setString(1, user.getUserName());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getPassword());
             preparedStatement.setString(4, String.valueOf(user.getGoalOfCalories()));
             preparedStatement.setInt(5, user.getId());
+            preparedStatement.setBoolean(6, user.isUseSqLite());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
