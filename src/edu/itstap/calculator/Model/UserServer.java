@@ -76,6 +76,7 @@ public class UserServer implements Runnable {
                 user.setEmail(dataUser.getString("email"));
                 user.setId(dataUser.getInt("id"));
                 user.setGoalOfCalories(goal);
+                user.setUseSqLite(dataUser.getBoolean("useSqLite"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -96,6 +97,7 @@ public class UserServer implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(user.toString());
 
         return this.authorization;
 

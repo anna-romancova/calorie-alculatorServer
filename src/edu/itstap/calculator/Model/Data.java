@@ -202,8 +202,9 @@ public class Data {
 
         connection();
         try {
+
             resultSet = statement
-                    .executeQuery("select  id , email , goals_calories  from calculatorCalorie.Users where username= '"+userName+"' AND password='"+password+"'");
+                    .executeQuery("select  id , email , goals_calories , useSqLite  from calculatorCalorie.Users where username= '"+userName+"' AND password='"+password+"'");
 
         } catch (SQLException e) {
             e.printStackTrace();
