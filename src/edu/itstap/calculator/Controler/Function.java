@@ -17,7 +17,7 @@ public class Function {
     public Function() {
 
         try {
-            port=6447;
+            port=6489;
             ss=new ServerSocket(port);
 
         } catch (IOException e) {

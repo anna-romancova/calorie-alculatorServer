@@ -63,7 +63,7 @@ public class Data {
 
     }
 
-    public boolean authorization( String username, String password){
+    public boolean authorization(String username, String password){
         boolean aut=false;
         connection();
         try {
@@ -237,8 +237,9 @@ public class Data {
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getPassword());
             preparedStatement.setString(4, String.valueOf(user.getGoalOfCalories()));
-            preparedStatement.setInt(5, user.getId());
-            preparedStatement.setBoolean(6, user.isUseSqLite());
+            preparedStatement.setBoolean(5, user.isUseSqLite());
+            preparedStatement.setInt(6, user.getId());
+
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

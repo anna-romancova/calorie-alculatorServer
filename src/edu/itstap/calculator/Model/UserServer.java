@@ -81,13 +81,13 @@ public class UserServer implements Runnable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        try {
+        /*try {
             User us=  allHistoryMenuOfUser(user);
             setUser(us);
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
         try {
